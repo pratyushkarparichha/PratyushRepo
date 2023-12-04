@@ -6,6 +6,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class Quiz extends HttpServlet {
    
@@ -19,6 +20,9 @@ public class Quiz extends HttpServlet {
 		res.setContentType("text/html");
 		//read form data
 		String name = req.getParameter("pname");
+		//set session attribute
+		HttpSession s = req.getSession();
+		s.setAttribute("sname", name);
 		
 		//Wrinting b.logic 
 		pw.println
@@ -26,9 +30,9 @@ public class Quiz extends HttpServlet {
 				+ "Choose The Below Link To Select The Topic</h1>");
 		
 		//adding another hyperlink 
-		pw.println("<a style='text-align:center' href='Topic.html'> TOPIC</a>");
+		pw.println("<h1 style='color:green ; text-align:center'> <a href='Topic.html'> TOPIC</a>");
 		pw.println("<br><br>");
-		pw.println("<a href='Home.html'> <img src='images/Home.png' width='50' hight='50'></a>");
+		pw.println("<a href='Home.html'> <img src='images/Home.png' width='50' hight='50'> </a> </h1>");
 		//close stream 
 		pw.close();
 		

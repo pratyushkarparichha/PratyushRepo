@@ -7,6 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class Maths extends HttpServlet {
 	
@@ -18,6 +19,11 @@ public class Maths extends HttpServlet {
 		PrintWriter pw = res.getWriter();
 		//set response content type
 		res.setContentType("text/html");
+		
+		//geting session attribute value
+		HttpSession s=req.getSession(false);  
+        String sn=(String)s.getAttribute("sname");
+		
 		//read form data
 		int count=0;
 		String a1,a2,a3,a4,a5,a6,a7,a8,a9,a10;
@@ -32,6 +38,7 @@ public class Maths extends HttpServlet {
 		a9=req.getParameter("9");
 		a10=req.getParameter("10");
 		
+		//busness logic
 		if(a1.equals("b")) {
 			count++;
 		}else 
@@ -82,10 +89,20 @@ public class Maths extends HttpServlet {
 		}else 
 			pw.println("The correct anser for 10.Q is [c.  480]  <br>");
 		
+		pw.println("<br>");
+		pw.println("<br>");
+		pw.println("<h1 style='color:blue; text-align:center'> Hello "+sn+"</h1>");
+		
 		if(count==10) {
 			pw.println(
-			"<h1 style='color:green; text-align:center'> Congratulations you have answered all correct answers!</h1>");
+			"<h1 style='color:green; text-align:center'> congratulations you have answered all questions correctly!</h1>");
 		}else 
 			pw.println("<h1 style='color:red; text-align:center'> You have scored " +count+"</h1>");
+		
+		pw.println("<br>");
+		pw.println("<h4 style='color:green ; text-align:center'> <a href='Topic.html'> TOPIC </a> </h4>");
+		pw.println("<br>");
+		pw.println("<h1 style='color:green ; text-align:center'> <a href='Home.html'> <img src='images/Home.png' width='50' hight='50'> </a> </h1>");
+		
 }
 }
