@@ -1,0 +1,108 @@
+package com.pk.servlet;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+
+public class Gk extends HttpServlet {
+  
+	public void doGet(HttpServletRequest req, HttpServletResponse res) 
+			throws IOException, ServletException{
+		
+		//get writer
+		PrintWriter pw = res.getWriter();
+		//set response content type
+		res.setContentType("text/html");
+		//getting session attribute
+		HttpSession s = req.getSession(false);
+		String sn = (String)s.getAttribute("sname");
+		
+		//read form data
+		int count = 0;
+		String a1,a2,a3,a4,a5,a6,a7,a8,a9,a10;
+		a1 = req.getParameter("1");
+		a2 = req.getParameter("2");
+		a3 = req.getParameter("3");
+		a4 = req.getParameter("4");
+		a5 = req.getParameter("5");
+		a6 = req.getParameter("6");
+		a7 = req.getParameter("7");
+		a8 = req.getParameter("8");
+		a9 = req.getParameter("9");
+		a10 = req.getParameter("10");
+		
+		//busness logic
+		if(a1.equals("c")) {
+			count++;
+		}else
+			pw.println("The correct anser for 1.Q is [c.  Canberra] <br>");
+		
+		if(a2.equals("d")) {
+			count++;
+		}else
+			pw.println("The correct anser for 2.Q is [d.  Pacific Ocean] <br>");
+		
+		if(a3.equals("b")) {
+			count++;
+		}else
+			pw.println("The correct anser for 3.Q is [b.  Mars] <br>");
+		
+		if(a4.equals("b")) {
+			count++;
+		}else
+			pw.println("The correct anser for 4.Q is [b.  Mount Everest] <br>");
+		
+		if(a5.equals("c")) {
+			count++;
+		}else
+			pw.println("The correct anser for 5.Q is [c.  Portuguese] <br>");
+		
+		if(a6.equals("b")) {
+			count++;
+		}else
+			pw.println("The correct anser for 6.Q is [b.  Alexander Graham Bell] <br>");
+		
+		if(a7.equals("c")) {
+			count++;
+		}else
+			pw.println("The correct anser for 7.Q is [c.  Japan] <br>");
+		
+		if(a8.equals("a")) {
+			count++;
+		}else
+			pw.println("The correct anser for 8.Q is [a.  William Shakespeare] <br>");
+		
+		if(a9.equals("d")) {
+			count++;
+		}else
+			pw.println("The correct anser for 9.Q is [d.  Dolphins] <br>");
+		
+		if(a10.equals("c")) {
+			count++;
+		}else
+			pw.println("The correct anser for 10.Q is [c.  Non-metals] <br>");
+		
+		pw.println("<br>");
+		pw.println("<br>");
+		pw.println("<h1 style='color:blue; text-align:center'> Hello "+sn+"</h1>");
+		
+		if(count==10) {
+			pw.println(
+			"<h1 style='color:green; text-align:center'> congratulations you have answered all questions correctly!</h1>");
+		}else 
+			pw.println("<h1 style='color:red; text-align:center'> You have scored " +count+"</h1>");
+		
+		pw.println("<br>");
+		pw.println("<h4 style='color:green ; text-align:center'> <a href='Topic.html'> TOPIC </a> </h4>");
+		pw.println("<br>");
+		pw.println("<h1 style='color:green ; text-align:center'> <a href='Home.html'> <img src='images/Home.png' width='50' hight='50'> </a> </h1>");
+	}
+	
+	
+}

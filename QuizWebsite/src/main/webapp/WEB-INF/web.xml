@@ -28,7 +28,7 @@
 <url-pattern>/mathsurl</url-pattern>
 </servlet-mapping>
 
-<servlet>
+   <servlet>
    <servlet-name>science</servlet-name>
    <servlet-class>com.pk.servlet.Science</servlet-class>
    </servlet>
@@ -36,6 +36,16 @@
 <servlet-mapping>
 <servlet-name>science</servlet-name>
 <url-pattern>/scienceurl</url-pattern>
+</servlet-mapping>
+
+   <servlet>
+   <servlet-name>gk</servlet-name>
+   <servlet-class>com.pk.servlet.Gk</servlet-class>
+   </servlet>
+    
+<servlet-mapping>
+<servlet-name>gk</servlet-name>
+<url-pattern>/gkurl</url-pattern>
 </servlet-mapping>
   
 </web-app>
