@@ -47,5 +47,15 @@
 <servlet-name>gk</servlet-name>
 <url-pattern>/gkurl</url-pattern>
 </servlet-mapping>
+
+   <servlet>
+   <servlet-name>english</servlet-name>
+   <servlet-class>com.pk.servlet.English</servlet-class>
+   </servlet>
+    
+<servlet-mapping>
+<servlet-name>english</servlet-name>
+<url-pattern>/englishurl</url-pattern>
+</servlet-mapping>
   
 </web-app>
